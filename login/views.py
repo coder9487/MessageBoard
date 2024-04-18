@@ -8,7 +8,7 @@ from django.core.files.storage import FileSystemStorage
 from django.contrib.auth.models import User
 # Create your views here.
 import re
-s = 'as32{ vd"s k!+'
+
 print
 
 
@@ -22,7 +22,7 @@ def login_view(request):
         from_form_username = form.data['username']
         from_form_password = form.data['password']
 
-        from_form_username = from_form_username(re.sub('[^a-zA-Z]+', '', s))
+        from_form_username = (re.sub('[^a-zA-Z]+', '', from_form_username))
 
         print("Username: ", from_form_username, "Password: ", from_form_password)
         
@@ -40,7 +40,7 @@ def login_view(request):
                 if filetype not in ['jpg','jpeg','png']:
                     uploaded_file_url = 'default_avatar.png'
                 else:
-                    filename = fs.save('USER_DATA/'+from_form_username+'/'+'avatar.'+filetype, myfile)
+                    filename = fs.save('message_board/static/USER_DATA/'+from_form_username+'/'+'avatar.'+filetype, myfile)
                     uploaded_file_url = fs.url(filename)
                 
                 print('uploaded_file_url:',uploaded_file_url)

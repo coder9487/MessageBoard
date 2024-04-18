@@ -4,38 +4,57 @@
     <title>Home Page</title>
     <style>
 
-        .body {
+        #home_body {
+            
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f0f0f0;
         }
 
-        .home_container {
+        #home_container {
             width: 80%;
             margin: 0 auto;
         }
 
-        .home_header {
-            background-color: #333;
+        #home_header {
+            background-color: black;
             color: white;
             padding: 10px 0;
         }
 
-        .home_header h1 {
-            color: black;
+        #home_header h1 {
+            color: white;
             margin: 0;
             padding: 0 20px;
         }
     </style>
 </head>
-<body class="home_body">
-    <home_header class="home_header">
-        <div class="home_container">
+<body id="home_body">
+    {% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+    <div id="home_header">
+        <div id="home_container">
             <h1>Home Page</h1>
+            <div class="dropdown">
+                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Page Navigation
+                </a>
+              
+                <ul class="dropdown-menu">
+                    {% if not user.is_authenticated %}
+                  <li><a class="dropdown-item" href="/login">login</a></li>
+                  {% endif %}
+                  <li><a class="dropdown-item" href="/message_board">message_board</a></li>
+                  <li><a class="dropdown-item" href="/intro">self intro</a></li>
+                  <li><a class="dropdown-item" href="#">logout</a></li>
+                </ul>
+              </div>
+           
         </div>
-    </home_header >
-    <div class="home_container">
+    </div >
+    <div id="home_container">
         {% block content %}{% endblock %}
     </div>
 </body>

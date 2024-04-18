@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'login',
     'message_board',
     'bootstrap5',
+    'intro',
 ]
 
 MIDDLEWARE = [
