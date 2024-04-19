@@ -43,12 +43,14 @@
                 </a>
               
                 <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/intro">self intro</a></li>
+
                     {% if not user.is_authenticated %}
                   <li><a class="dropdown-item" href="/login">login</a></li>
-                  {% endif %}
+                  {% else %}
                   <li><a class="dropdown-item" href="/message_board">message_board</a></li>
-                  <li><a class="dropdown-item" href="/intro">self intro</a></li>
-                  <li><a class="dropdown-item" href="#">logout</a></li>
+                  <li><a class="dropdown-item" href="/logout">logout</a></li>
+                  {% endif %}
                 </ul>
               </div>
            

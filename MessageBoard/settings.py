@@ -20,12 +20,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-=79a6km0uce%0n4^_61e##jmg*+s$0b=1%2s+2aaf^hew3q6#3'
+SECRET_KEY = 'django-insecure-=79a6km0uce%0n4^_61e##jmg*+s$02948q3i47568v735bfc8q7804tk8378909w4589105#^_)(*$*()&H(_%^Vyiqv13645r139xr484b=1%2s+2aaf^healfjkgaouerbgjklxw3q6#3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
+
+
 
 
 # Application definition
@@ -41,6 +43,7 @@ INSTALLED_APPS = [
     'message_board',
     'bootstrap5',
     'intro',
+    'logout'
 ]
 
 MIDDLEWARE = [
@@ -129,3 +132,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 LOGIN_REDIRECT_URL = '/'
+
+
+
+SESSION_COOKIE_SECURE = True

@@ -5,24 +5,16 @@
 
 <!-- ... existing code ... -->
 
-<div class="card-body">
-    <p>Hello, my name is Yung Zhen Xu. I am a software developer with a passion for learning new technologies and solving complex problems. I have experience in Django, HTML, and Bootstrap.</p>
-</div>
 
-<!-- New Skills Section -->
-<div class="card mt-4">
-    <div class="card-header">
-        <h3 class="card-title">Skills</h3>
-    </div>
-    <div class="card-body">
-        <ul>
-            <li>Django</li>
-            <li>HTML</li>
-            <li>Bootstrap</li>
-            <!-- Add more skills as needed -->
-        </ul>
+<div class="d-flex justify-content-center align-items-center" style="height: 60vh;">
+    <div class="card" style="width: 18rem;">
+        {%load static%}
+        <img src="{% static 'default_avatar.png' %}" class="card-img-top" alt="Your Name" >
+        <div class="card-body">
+            <h5 class="card-title">Yun Jen Xu</h5>
+            <p class="card-text">Hi, my name is yunjen xu. I'm a student from NTU EE. </p>
+        </div>
     </div>
 </div>
-
 <!-- ... existing code ... -->
 {% endblock %}

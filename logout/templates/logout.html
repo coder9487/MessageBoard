@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>You have been logged out</h2>
+    <p>Thank you for visiting. You have been successfully logged out. We hope to see you again soon.</p>
+    <div class="d-flex justify-content-center">
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    <script>    
+        setTimeout(function() {
+            window.location.href = "/login";
+        }, 3000);
+    </script>
+{% endblock %}

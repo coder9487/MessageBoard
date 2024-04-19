@@ -15,7 +15,7 @@ def message_board(request):
     fs = FileSystemStorage()
     user_avatar_image_url_base = 'message_board'
     user_avatar_image_url = '/static/USER_DATA/'+current_user+'/avatar.png'
-
+    #
     if fs.exists(user_avatar_image_url_base+user_avatar_image_url):
         print("User Avatar Image URL Exists ")
         user_avatar_image_url = user_avatar_image_url

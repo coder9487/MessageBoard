@@ -25,32 +25,33 @@
         <div class="col-md-6 message_board_show col">
             <h2>All Messages</h2>
             {% for message_element in message_board %}
-                <div class="card mb-1 message_card">
-                      <div class="card-body">
-                        <div class="row ">
-                            <div class="col-3">
-                                <img src="/static/USER_DATA/{{message_element.username}}/avatar.png" class="rounded-circle" alt="avatar" id ='avatar_image_mesg'>
-                                <h5 class="">{{message_element.username}}</h5>
-                            </div>
-                            <div class="col-7">
-                                <p class="">{{ message_element.message }}</p>
-                            </div>
+            <div class="card mb-3">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <img src="/static/USER_DATA/{{message_element.username}}/avatar.png" class="rounded-circle" alt="avatar" id ='avatar_image_mesg'>
+                        </div>
+                        <div class="col-md-6">
+                            <h5 class="card-title">{{ message_element.username }}</h5>
+                            <p class="card-text">{{ message_element.message }}</p>
+                            <p class="card-text"><small class="text-muted">{{ message_element.timestamp }}</small></p>
+                        </div>
+                        <div class="col-md-1">
                             {% if message_element.username == username %}
-                            <div class="col-1" >
-
-                                <div>
-                                    <form method="post">
-                                        {% csrf_token %}
-                                        <input type="hidden" name="delete_message_id" value="{{ message_element.id }}">
-                                        <button type="submit" class="btn btn-danger">delete</button>
-                                    </form>
-                                </div>
-                            </div>
+                            <div>
+                                <form method="post">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="delete_message_id" value="{{ message_element.id }}">
+                                    <button type="submit" class="btn btn-danger" id="detele_btn">delete</button>
+                                </form>
                             </div>
                             {% endif %}
-                          </div>
-                    </div>      
+                        </div>
+
+
+                    </div>
                 </div>
+            </div>
             {% endfor %}
         </div>
     </div>
@@ -68,6 +69,10 @@
             overflow-y: scroll;
             overflow-x: fixed;
             height: 600px;
+        }
+
+        #detele_btn{
+            margin-right: 10px;
         }
 
 
