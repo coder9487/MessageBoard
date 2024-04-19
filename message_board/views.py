@@ -30,16 +30,23 @@ def message_board(request):
 
 
     if request.method == "POST":
-        print("POST Request: ", request.POST)
-        print("POST Request: ", request.POST['message'])
-        print("Current User to send  ", current_user)
-        # Get the current UTC time
-        current_utc_time = str(datetime.now(timezone.utc))
+        if 'delete_message_id' not in request.POST:
+            # Get the current UTC time
+            current_utc_time = str(datetime.now(timezone.utc))
 
-        # Create a new post with the current UTC time
-        post = models.Post(username=current_user, message=request.POST['message'], timestemp=current_utc_time)
-        post.save()
-
+            # Create a new post with the current UTC time
+            post = models.Post(username=current_user, message=request.POST['message'], timestemp=current_utc_time)
+            post.save()
+        else:   
+            deleting_id = request.POST.get('delete_message_id', 'None')
+            print("Delete Message ID: ", deleting_id)
+            #post.delete()
+            # Get the post by id
+            if deleting_id != 'None':
+                post_delete = models.Post.objects.get(id=deleting_id)
+                if post_delete.username == current_user:
+                    post_delete.delete()
+                
 
     return render(request, "message_board.html" ,
                   {'user_avatar_image_url': user_avatar_image_url,
